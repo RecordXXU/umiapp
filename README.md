@@ -1,6 +1,6 @@
 # 基于高德地图API的天气查询web应用程序
 
-## Getting Started
+## Building Project
 
 Install dependencies,
 
