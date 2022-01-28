@@ -14,4 +14,4 @@ Start the dev server,
 $ yarn start
 ```
 
-基于和风天气API以及高德地图API的天气查询小组件
+## 基于高德地图API的天气查询web应用程序
