@@ -6,7 +6,8 @@
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "dvam": "umi dva list model"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -34,6 +35,7 @@
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
     "typescript": "^4.1.2",
+    "umi-plugin-react": "^1.15.8",
     "yorkie": "^2.0.0"
   }
 }
