@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, message } from 'antd';
 import styles from './index.less';
-import { request, connect } from 'umi';
+import { request, connect, useDispatch, useSelector } from 'umi';
 import response from './weather.json';
 import * as services from '@/services';
 // @connect(({ user, loading }) => ({ user, loading }))
@@ -11,8 +11,14 @@ function Weather() {
   const [city, setCity] = useState('萧山区');
   const [key, setKey] = useState('d4a22a87b175e73f76bde1c1cfd43913');
 
+  const dispatch = useDispatch();
   const filterCitycode = () => {
-    console.log(connect);
+    dispatch({
+      type: 'weather/getAddress',
+      payload: {
+        key,
+      },
+    });
     // const result = response.filter((item) => item.name === adcode);
     // console.log(result);
     // request(`https://restapi.amap.com/v3/ip?parameters`, {

@@ -7,10 +7,14 @@ const weather = {
   state: {
     dataList: 1,
   },
-  effect: {
-    *getAddress({ payload }, { call, put }) {
+  effects: {
+    *getAddress({ payload }, { call, put, select }) {
+      console.log('12312');
       const res = yield call(services.getAddress, payload);
+      // const dataList = yield select((state) => state.weather.dataList);
+      // console.log(dataList, 'datalist')
       console.log(res);
+
       // yield put({
       //   type: 'save',
       //   payload: { name: '慧慧' },
@@ -24,3 +28,4 @@ const weather = {
     },
   },
 };
+export default weather;
