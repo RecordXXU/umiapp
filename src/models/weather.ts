@@ -1,7 +1,18 @@
-import * as services from '@/services.ts';
+import { Effect, Reducer } from 'umi';
+import * as services from '@/services';
 import { message } from 'antd';
 const namespace = 'weather';
-const weather = {
+interface weather {
+  state: any;
+  namespace: 'weather';
+  effects: {
+    getAddress: Effect;
+  };
+  reducers: {
+    save: Reducer;
+  };
+}
+const weather: weather = {
   // models命名空间，需全局唯一
   namespace,
   // models存储的数据store
