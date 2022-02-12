@@ -1,19 +1,22 @@
 import * as services from '@/services.ts';
+import { message } from 'antd';
 const namespace = 'weather';
 const weather = {
   // models命名空间，需全局唯一
   namespace,
   // models存储的数据store
-  state: {
-    dataList: 1,
-  },
+  state: {},
   effects: {
-    *getAddress({ payload }, { call, put, select }) {
-      console.log('12312');
+    *getAddress({ payload, callback }, { call, put, select }) {
       const res = yield call(services.getAddress, payload);
+      if (res && res.status === '1') {
+        // console.log(res);
+        if (callback) callback(res);
+      } else {
+        message.error(`发生错误，${res.info}<${res.infocode}>`);
+      }
       // const dataList = yield select((state) => state.weather.dataList);
       // console.log(dataList, 'datalist')
-      console.log(res);
 
       // yield put({
       //   type: 'save',

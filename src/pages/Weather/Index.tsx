@@ -13,10 +13,14 @@ function Weather() {
 
   const dispatch = useDispatch();
   const filterCitycode = () => {
+    // console.log()
     dispatch({
       type: 'weather/getAddress',
       payload: {
         key,
+      },
+      callback: (res: any) => {
+        console.log(res);
       },
     });
     // const result = response.filter((item) => item.name === adcode);
