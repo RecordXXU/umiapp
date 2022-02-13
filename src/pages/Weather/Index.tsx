@@ -22,7 +22,6 @@ const Weather = () => {
   };
   return (
     <div className={styles.box}>
-      {/* <Button onClick={filterCitycode}>天气</Button> */}
       <SearchBar />
     </div>
   );
