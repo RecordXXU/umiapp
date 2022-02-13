@@ -5,7 +5,6 @@
 /npm-debug.log*
 /yarn-error.log
 /yarn.lock
-/.vscode
 /package-lock.json
 
 # production
@@ -19,3 +18,5 @@
 /src/.umi-production
 /src/.umi-test
 /.env.local
+
+.vscode
