@@ -7,24 +7,27 @@ const SearchBar = () => {
   const [key, setKey] = useState('d4a22a87b175e73f76bde1c1cfd43913');
   const dispatch = useDispatch();
   const searchCity = (e: any) => {
+    let timer: any = null;
     console.log(e.target.value);
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      dispatch({
+        type: 'weather/getAddress',
+        payload: {
+          key,
+        },
+        callback: (res: any) => {
+          console.log(res);
+        },
+      });
+    }, 300);
     setCity(e.target.value);
-    // dispatch({
-    //   type: 'weather/getAddress',
-    //   payload: {
-    //     key,
-    //   },
-    //   callback: (res: any) => {
-    //     console.log(res);
-    //   },
-    // });
   };
   return (
     <div className={styles.searchBar}>
       <div>
         <Input
-          bordered={false}
-          placeholder="搜索城市"
+          placeholder="请输入要搜索城市"
           value={city}
           onChange={(e) => searchCity(e)}
         />

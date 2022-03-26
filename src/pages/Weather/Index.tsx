@@ -9,17 +9,17 @@ const Weather = () => {
   const [city, setCity] = useState('萧山区');
   const [key, setKey] = useState('d4a22a87b175e73f76bde1c1cfd43913');
   const dispatch = useDispatch();
-  const filterCitycode = () => {
-    dispatch({
-      type: 'weather/getAddress',
-      payload: {
-        key,
-      },
-      callback: (res: any) => {
-        console.log(res);
-      },
-    });
-  };
+  // const filterCitycode = () => {
+  //   dispatch({
+  //     type: 'weather/getAddress',
+  //     payload: {
+  //       key,
+  //     },
+  //     callback: (res: any) => {
+  //       console.log(res);
+  //     },
+  //   });
+  // };
   return (
     <div className={styles.box}>
       <SearchBar />
