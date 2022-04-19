@@ -7,6 +7,7 @@ interface weather {
   namespace: 'weather';
   effects: {
     getAddress: Effect;
+    getWeaterInfo: Effect;
   };
   reducers: {
     save: Reducer;
@@ -33,6 +34,15 @@ const weather: weather = {
       //   type: 'save',
       //   payload: { name: '慧慧' },
       // });
+    },
+    *getWeaterInfo({ payload, callback }, { call, put, select }) {
+      const res = yield call(services.getWeaterInfo, payload);
+      if (res && res.status === '1') {
+        // console.log(res);
+        if (callback) callback(res);
+      } else {
+        message.error(`发生错误，${res.info}<${res.infocode}>`);
+      }
     },
   },
   // 更新store，用新数据合并state的旧数据
